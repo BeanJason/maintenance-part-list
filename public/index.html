@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Maintenance part list</title>
+  <meta charset = "utf-8">
+  <link rel = "stylesheet" href="Style/main.css">
+  <script src="call-server.js"></script>
+</head>
+
+<body style="background-color: darkgray;">
+  <label for="line">Line:</label>
+<select id="line" name="line">
+  <option value="401">401</option>
+  <option value="402">402</option>
+  <option value="403">403</option>
+  <option value="404">404</option>
+  <option value="406">406</option>
+  <option value="406.5">406.5</option>
+  <option value="407">407</option>
+  <option value="408">408</option>
+  <option value="409">409</option>
+</select>
+
+
+<label for="station">Station:</label>
+<select id="station" name="station">
+  <option value="ASY01">ASY01</option>
+  <option value="ASY02">ASY02</option>
+  <option value="ASY03">ASY03</option>
+  <option value="ASY04">ASY04</option>
+  <option value="HLT">HLT</option>
+  <option value="ALL">ALL</option>
+</select>
+
+<label for="sort">Sort by:</label>
+<select id="sort" name="sortTable">
+  <option value="timeAcending">Time accending</option>
+  <option value="timeDescending">Time descending</option>
+  <option value="signature">Signature</option>
+</select>
+
+<button id="viewBtn">View</button>
+<button id="viewAllBtn">View all</button>
+
+<br><br>
+
+<label for="addLine">Add to Line:</label>
+<select id="addLine" name="Add to line">
+  <option value="401">401</option>
+  <option value="402">402</option>
+  <option value="403">403</option>
+  <option value="404">404</option>
+  <option value="406">406</option>
+  <option value="4065">4065</option>
+  <option value="407">407</option>
+  <option value="408">408</option>
+  <option value="409">409</option>
+</select>
+
+<label for="addStation">Add to station:</label>
+<select id="addStation" name="station">
+  <option value="ASY01">ASY01</option>
+  <option value="ASY02">ASY02</option>
+  <option value="ASY03">ASY03</option>
+  <option value="ASY04">ASY04</option>
+  <option value="HLT">HLT</option>
+</select>
+
+<label for="part">Name of part:</label>
+<input type="text" id="partName" maxlength="255">
+
+<label for="Description">Add Description:</label>
+<input type="text" id="partDescription" maxlength="2024">
+
+<label for="signature">Requested by:</label>
+<input type="text" id="personSignature" maxlength="30">
+
+<button id="addBtn">Add</button>
+
+<br><br>
+<table id="partsTable">
+  <thread>
+    <tr>
+      <th>Line:</th>
+      <th>Station:</th>
+      <th>Part:</th>
+      <th>Description:</th>
+      <th>Date:</th>
+      <th>Time:</th>
+      <th>Signature:</th>
+    </tr>
+  </thread>
+  
+</table>
+</body>
+</html>
