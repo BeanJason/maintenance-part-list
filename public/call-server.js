@@ -8,8 +8,8 @@ function handleViewButton(){
     let stationSelect = document.getElementById('station')
     let stationValue = stationSelect.options[stationSelect.selectedIndex].text
 
-    let sortBy = document.getElementById('sort')
-    let sortByValue = sortBy.options[stationSelect.selectedIndex].text
+    // let sortBy = document.getElementById('sort')
+    // let sortByValue = sortBy.options[stationSelect.selectedIndex].text
 
     const fetchObject = {
         method: 'GET',
