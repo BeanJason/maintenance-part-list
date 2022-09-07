@@ -319,6 +319,9 @@ function selectFill(){
     }else if(lineValue == 'A-409'){
         console.log("409 selected")
         ASY_Stations_409.forEach(element => stationSelect.add(element, undefined));
+    }else if(lineValue == 'A-WL75'){
+        console.log("AWL75 selected")
+        ASY_Stations_WL75.forEach(element => stationSelect.add(element, undefined));
     }
 
         //fill based off of line selected (BMM)
@@ -397,6 +400,7 @@ function selectFill(){
 
 function selectAddFill() {
 
+    console.log("selectAdd called")
      //all possible stations
     //ASY
     let ASY01 = new Option('ASY01', 'ASY01');
@@ -521,6 +525,9 @@ function selectAddFill() {
     }else if(addLineSelectVal == 'A-409'){
         console.log("409 selected")
         ASY_Stations_409.forEach(element => addStationSelect.add(element, undefined));
+    }else if(addLineSelectVal == 'A-WL75'){
+        console.log("AWL75 selected")
+        ASY_Stations_WL75.forEach(element => addStationSelect.add(element, undefined));
     }
 
         //fill based off of line selected (BMM)
@@ -571,7 +578,7 @@ function selectAddFill() {
         FIN_Stations_403.forEach(element => addStationSelect.add(element, undefined));
     }else if(addLineSelectVal == 'F-404'){
         console.log("404 selected")
-        FIN_Stations_404_FLEX.forEach(element => addStationSelect.add(element, undefined));
+        FIN_Stations_404_Flex.forEach(element => addStationSelect.add(element, undefined));
     }else if(addLineSelectVal == 'F-406'){addStationSelect
         console.log("406 selected")
         FIN_Stations_406.forEach(element => addStationSelect.add(element, undefined));
