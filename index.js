@@ -85,7 +85,7 @@ app.get('/getpart/:line/:station', (req, res) => {
     if(req.params.station === "ALL"){
         sql = 'SELECT * FROM parts WHERE line = ' + req.params.line + ' ORDER BY station';
     } else {
-        sql = 'SELECT * FROM parts WHERE line = ' + req.params.line + ' && station = "' + req.params.station + '"';
+        sql = 'SELECT * FROM parts WHERE line = "' +  req.params.line + '" && station = "' + req.params.station + '"';
     }
     let query = db.query(sql, (err, results) => {
         if(err) {
