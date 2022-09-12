@@ -24,8 +24,6 @@ function handleViewButton(){
             data => {console.log(data)
             fillTable(data)
             })
-        .catch(viewCheck(false));
-
 }
 
 function handleViewAllButton(){
@@ -46,7 +44,6 @@ function handleViewAllButton(){
             data => {console.log(data)
             fillTable(data)
             })
-        .catch(viewCheck(false));
 }
 
 function viewCheck(confirmation){
