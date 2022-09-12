@@ -73,7 +73,9 @@ app.post('/addpart', (req, res) => {
         if(err) {
             throw err
         }
-        res.send('Part added')
+        
+        res.send(true)
+        
     })
 })
 

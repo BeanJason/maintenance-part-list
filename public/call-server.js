@@ -23,7 +23,8 @@ function handleViewButton(){
         .then(
             data => {console.log(data)
             fillTable(data)
-            });
+            })
+        .catch(viewCheck(false));
 
 }
 
@@ -44,7 +45,14 @@ function handleViewAllButton(){
         .then(
             data => {console.log(data)
             fillTable(data)
-            });
+            })
+        .catch(viewCheck(false));
+}
+
+function viewCheck(confirmation){
+    if(!confirmation){
+        confirm("Server error. Request can not be completed. Please contact IS&S");
+    }
 }
 
 function handleAddButton(){
@@ -95,18 +103,43 @@ function handleAddButton(){
     };
     console.log(url + lineValue + "/" + stationValue + "/" + partName + "/" + description)
     fetch(url, fetchObject)
-        .then(res => res.json())
-        .then(jsonObject => {
-            console.log("jsonObject.line = " + jsonObject.line)
-            console.log('\n')
-        }
-            );
+        .then(function(response){
+            if(!response.ok){
+                throw Error(response.statusText);
+            }
+            return response;
+        })
+        //.then(res => res.json())
+        .then(function(response) {
+            //console.log("jsonObject.line = " + jsonObject.line)
+            confirmAdded(true)
+        }).catch(function(error){
+            confirmAdded(false);
+        });
 
-            confirm("Request submitted succesfully.");
-        
-            partInput.value = "";
-            descriptionInput.value = "";
-            signatureInput.value = "";
+
+}
+
+function confirmAdded(confirmation){
+    console.log("confirm check " + confirmation);
+    if(confirmation){
+
+        let partInput = document.getElementById('partName')
+    let partName = partInput.value
+
+    let descriptionInput = document.getElementById('partDescription')
+    let description = descriptionInput.value
+
+    let signatureInput = document.getElementById('personSignature')
+    let signatureValue = signatureInput.value
+
+        partInput.value = "";
+        descriptionInput.value = "";
+        signatureInput.value = "";
+        confirm("Request submitted succesfully.");
+    }else{
+        confirm("Server error. Request can not be completed. Please contact IS&S");
+    }
 }
 
 function handleDeleteButton(id){
@@ -123,11 +156,30 @@ function handleDeleteButton(id){
         };
     
         fetch(url + id, fetchObject)
+        .then(function(response){
+            if(!response.ok){
+                throw Error(response.statusText);
+            }
+            return response;
+        }).then(function(response) {
+            //console.log("jsonObject.line = " + jsonObject.line)
+            confirmDelete(true)
+        }).catch(function(error){
+            confirmDelete(false);
+        });
         
-        confirm("Part Deleted");
+        
         handleViewButton();
     }
     
+}
+
+function confirmDelete(confirmation){
+    if(confirmation){
+        confirm("Part Deleted");
+    }else{
+        confirm("Server error. Request can not be completed. Please contact IS&S");
+    }
 }
 
 function fillTable(data) {
